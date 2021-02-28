@@ -1,0 +1,80 @@
+<% if @book.confirming.blank? %>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 my-3">
+        <%= image_tag @room.image, class: "img-fluid" %>
+        <div class="row m-0 p-0 border-bottom">
+          <div class="col-2">
+            <%= image_tag @room_owner.image, class: "user_picture rounded-circle my-3 ml-2" %>
+          </div>
+          <div class="col-10">
+            <%= content_tag :div, @room.name, class: "font-weight-bold h4 py-3"%>
+            <%= content_tag :div, @room.address, class: "pb-3" %>
+          </div>
+        </div>
+        <%= content_tag :div, @room.introduction, class: "py-4 pl-3 mb-3 border-bottom" %>
+      </div>
+      <div class="col-md-4 my-3">
+        <div class="border px-3 pt-2 pb-4">
+          <%= render "shared/error", obj: @book %>
+          <div class="py-3 h4">
+            <%= "¥ #{@room.price} / 日" %>
+          </div>
+          <%= form_with model: [@room, @book] do |f| %>
+          <div class="pb-3">
+            <%= f.label :start_day, "開始日", class: "col-form-label" %>
+            <%= f.date_field :start_day, class:"form-control" %>
+          </div>
+          <div class="pb-3">
+            <%= f.label :end_day, "終了日", class: "col-form-label" %>
+            <%= f.date_field :end_day, class:"form-control" %>
+          </div>
+          <div class="pb-3">
+            <%= f.label :person_number, "人数", class: "col-form-label" %>
+            <%= f.text_field :person_number, id: "p-number-form", class:"form-control" %>
+          </div>
+          <%= f.submit "予約する", id: "submit-check", class: "btn btn-primary pb-3 w-100" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<% else %>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6 my-5 border">
+      <%= form_with model: @book, url: room_books_path do |f| %>
+      <div class="py-3 mb-3 border-bottom">
+        <div class="h4">予約内容確認</div>
+      </div>
+      <div class="pb-3 mb-3 border-bottom">
+        <%= content_tag :div, "¥#{@room.price}/日", class: "h4" %>
+      </div>
+      <div class="pb-3">
+        <%= f.label :start_day, "開始日", class: "col-form-label" %>
+        <%= f.text_field :start_day, value: @book.start_day, readonly: true, class: "form-control" %>
+      </div>
+      <div class="pb-3">
+        <%= f.label :end_day, "終了日", class: "col-form-label" %>
+        <%= f.text_field :end_day, value: @book.end_day, readonly: true, class: "form-control" %>
+      </div>
+      <div class="pb-3 border-bottom">
+        <%= content_tag :div, "使用日数：#{@days.to_i}日間" %>
+      </div>
+      <div class="pb-3 pt-3 border-bottom">
+        <%= content_tag :div, "人数：#{@book.person_number}人" %>
+      </div>
+      <div class="pb-3">
+        <%= f.label :total_cost, "合計金額", class: "col-form-label" %>
+        <%= f.text_field :total_cost, value: @book.total_cost, readonly: true, class: "form-control" %>
+      </div>
+      <div>上記内容でよろしければ「予約を確定」を押してください</div>
+      <%= f.hidden_field :confirming, value: @book.confirming %>
+      <%= f.hidden_field :person_number, value: @book.person_number %>
+      <%= f.submit "予約を確定", class: "btn btn-primary pb-3 w-100 mt-3" %>
+      <%= link_to "ルーム詳細に戻る", room_path(@room.id), class: "btn btn-secondary pb-3 w-100 mt-3 mb-3" %>
+    <% end %>
+  </div>
+</div>
+</div>
+<% end %>

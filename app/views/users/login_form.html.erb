@@ -1,0 +1,21 @@
+<div class="container bg-light">
+  <div class="d-flex justify-content-center">
+    <div class="col-9 bg-white my-4 rouded p-4 d-flex justify-content-center">
+      <%= form_with url: login_path, method: :post do |f| %>
+      <div class="input-field">
+        <p class="mb-0">ログイン</p>
+        <div class="form-row mt-3">
+          <div class="pt-2 col-2 require-stamp-b"></div>
+          <%= f.text_field :email, value: @email, placeholder: "メールアドレス", id: "email-form", class: "form-control col-10" %>
+        </div>
+        <div class="form-row mt-3">
+          <div class="pt-2 col-2 require-stamp-b"></div>
+          <%= f.password_field :password, placeholder: "パスワード", id: "pass-form", class: "form-control col-10" %>
+        </div>
+        <%= f.submit "ログイン", class: "btn btn-primary mt-4 col" %>
+      <% end %>
+      <%= link_to "新しいアカウントを作成", new_user_path, class: "mt-3 d-block" %>
+    </div>
+  </div>
+</div>
+</div>

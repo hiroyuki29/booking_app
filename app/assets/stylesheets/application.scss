@@ -1,0 +1,108 @@
+@import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+a, a:visited, a:focus, a:hover {
+  text-decoration: none;
+}
+
+.hover-blue {
+  color:#121416;
+}
+
+.hover-blue:hover {
+  color: #4a90e2;
+}
+
+.field_with_errors {
+  display: contents;
+  input, textarea {
+    display: table;
+    background-color: red;
+    padding: 2px;
+  }
+}
+
+footer .container{
+  height:200px;
+}
+
+.dropdown-toggle::after {
+  display: none;
+}
+
+.header_height {
+  height: 100px;
+}
+
+.user_picture {
+  height: 60px;
+  width: 60px;
+  object-fit:cover;
+}
+//top-page
+.main {
+  background-image: url("img_cover_top.jpg");
+  //background-repeat: no-repeat;
+  background-size: cover;
+  height: 650px;
+  width: 100%;
+}
+
+.centering {
+  height: 650px;
+  display: flex;
+  align-items: center;
+}
+
+.card-height {
+  height:340px;
+  object-fit: cover;
+}
+
+.require-stamp::after {
+  content: "必須";
+  color: #fff;
+  background-color: #ff0000a8;
+  font-size: 12px;
+  border-radius: 5px;
+  padding: 4px;
+  margin: 0 5px;
+}
+
+.require-stamp-b::before {
+  content: "必須";
+  color: #fff;
+  background-color: #ff0000a8;
+  font-size: 12px;
+  border-radius: 5px;
+  padding: 4px;
+  margin: 0 5px;
+}
+
+.text-intro{
+  color: gray;
+}
+
+.room-card-height{
+  height:200px;
+  object-fit: cover;
+}
+.room-picture{
+  width: 240px;
+  height: 140px;
+  object-fit: cover;
+}
+
+.active_right{
+  border-right: 3px solid #4a90e2;
+}
+
+.active_bottom{
+  border-bottom: 3px solid #4a90e2;
+}
+
+.input-field{
+  width:360px;
+  text-align:center;
+}

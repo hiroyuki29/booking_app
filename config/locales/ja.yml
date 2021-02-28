@@ -1,0 +1,15 @@
+ja:
+  activerecord:
+    models:
+      book: 予約
+      user: ユーザー
+    attributes:
+      book:
+        start_day: 開始日
+        end_day: 終了日
+        person_number: 人数
+      user:
+        name: 名前
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: 確認用パスワード
