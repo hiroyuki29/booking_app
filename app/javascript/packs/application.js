@@ -11,3 +11,7 @@ import "channels"
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+require ('validation.js')
+require ('email_vali.js')
+require ('p_number_vali.js')

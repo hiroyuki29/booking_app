@@ -1,0 +1,28 @@
+<div class="px-5">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ルーム画像</th>
+        <th scope="col">ルーム名</th>
+        <th scope="col">ルーム紹介</th>
+        <th scope="col">合計料金</th>
+        <th scope="col">開始日</th>
+        <th scope="col">終了日</th>
+        <th scope="col">予約確定日</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @books.zip(@rooms).each do |book, room| %>
+        <tr>
+          <td><%= image_tag room.image, class: "room-picture" %></td>
+          <td><%= link_to "#{room.name}", room, class: "h5" %></td>
+          <td><%= room.introduction %></td>
+          <td><%= book.total_cost %></td>
+          <td><%= book.start_day %></td>
+          <td><%= book.end_day %></td>
+          <td><%= book.created_at %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

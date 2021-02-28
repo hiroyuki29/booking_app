@@ -1,0 +1,25 @@
+<div class="px-5">
+<h2>検索結果</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ルーム画像</th>
+      <th scope="col">ルーム名</th>
+      <th scope="col">ルーム紹介</th>
+      <th scope="col">料金</th>
+      <th scope="col">作成日</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @rooms.each do |room| %>
+    <tr>
+      <td><%= image_tag room.image, class: "room-picture" if room.image.attached? %></td>
+      <td><%= link_to "#{room.name}", room, class: "h5" %></td>
+      <td><%= room.introduction %></td>
+      <td><%= room.price %></td>
+      <td><%= room.created_at %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>

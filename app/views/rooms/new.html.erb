@@ -1,0 +1,50 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-2 d-lg-block d-none">
+      <%= link_to "基本情報", new_room_path, class:"d-block mt-3 py-2 pl-3 border-primary active_right" %>
+    </div>
+    <div class="col-lg-2 d-lg-none py-3">
+      <%= link_to "基本情報", new_room_path, class:"mt-3 py-2 ml-3 border-primary active_bottom text-center" %>
+    </div>
+    <div class="col-lg-10 container-fluid bg-light">
+      <div class="row justify-content-center">
+        <div class="col-9 bg-white my-4 rouded p-4">
+          <h4 class="border-bottom pb-4 mb-0">ルーム情報登録</h4>
+          <%= form_with model: @room do |f| %>
+          <div class="row pb-5 pt-4 border-bottom">
+            <%= f.label :name, "ルーム名", class: "col-sm-3 col-form-label require-stamp font-weight-bold" %>
+            <div class="col-sm-9">
+              <%= f.text_field :name, class: "form-control" %>
+            </div>
+          </div>
+          <div class="row pb-5 pt-4 border-bottom">
+            <%= f.label :introduction, "ルーム紹介", class: "col-sm-3 col-form-label require-stamp font-weight-bold" %>
+            <div class="col-sm-9">
+              <%= f.text_area :introduction, rows: "5", class: "form-control" %>
+            </div>
+          </div>
+          <div class="row pb-5 pt-4 border-bottom">
+            <%= f.label :price, "料金", type: "number", class: "col-sm-3 col-form-label require-stamp font-weight-bold" %>
+            <div class="col-sm-9">
+              <%= f.text_field :price, id: "room-price", class: "form-control fa"%>
+            </div>
+          </div>
+          <div class="row pb-5 pt-4 border-bottom">
+            <%= f.label :address, "住所", class: "col-sm-3 col-form-label require-stamp font-weight-bold" %>
+            <div class="col-sm-9">
+              <%= f.text_field :address, class: "form-control" %>
+            </div>
+          </div>
+          <div class="row pb-5 pt-4 border-bottom">
+            <%= f.label :image, "ルーム画像", class: "col-sm-3 col-form-label require-stamp font-weight-bold" %>
+            <div class="col-sm-9">
+              <%= f.file_field :image%>
+            </div>
+          </div>
+          <%= f.submit "登録", class: "btn btn-primary mt-4 col-sm-2" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

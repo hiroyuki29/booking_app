@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6 my-5 border">
+      <div class="py-3 mb-3 border-bottom">
+        <div class="h4">予約内容</div>
+      </div>
+      <div class="pb-3 mb-3 border-bottom row">
+        <div class="col-3">予約した部屋</div>
+        <%= content_tag :div, "#{@room.name}", class: "col-9" %>
+      </div>
+      <div class="pb-3 mb-3 border-bottom row">
+        <div class="col-3">開始日</div>
+        <%= content_tag :div, "#{@book.start_day}", class: "col-9" %>
+      </div>
+      <div class="pb-3 mb-3 border-bottom row">
+        <div class="col-3">終了日</div>
+        <%= content_tag :div, "#{@book.end_day}", class: "col-9" %>
+      </div>
+      <div class="pb-3 mb-3 border-bottom row">
+        <div class="col-3">価格</div>
+        <%= content_tag :div, "#{@book.total_cost}", class: "col-9" %>
+      </div>
+    </div>
+  </div>
+</div>

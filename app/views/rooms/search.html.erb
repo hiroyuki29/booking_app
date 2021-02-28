@@ -1,0 +1,26 @@
+<%= content_tag :h2, "検索結果：#{@match_num}" %>
+<div class="container-fluid">
+  <div class="row">
+    <% @rooms.each do |room| %>
+      <div class="col-lg-3 col-6">
+        <div class="card my-2">
+          <%= link_to room, class: "text-decoration-none" do %>
+          <%= image_tag room.image, class: "card-img-top room-card-height" if room.image.attached?%>
+          <div class="card-body">
+            <h4 class="card-title text-intro font-weight-bold">
+              <%= room.name %>
+            </h4>
+            <p class="card-text text-dark font-weight-bold h5">
+              <%= room.address %>
+            </p>
+            <p class="card-text text-dark text-right">
+              <%= "¥#{room.price}" %>
+            </p>
+          </div>
+        <% end %>
+        </div>
+      </div>
+
+    <% end %>
+  </div>
+</div>

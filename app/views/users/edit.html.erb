@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="row col-6 my-5 py-5 border rounded justify-content-center">
+      <div class="col-8">
+        <div class="h2 text-center">アカウント編集</div>
+        <%= render "shared/error", obj: @user %>
+        <%= form_with model: @user, url: users_update_path do |f| %>
+        <div class="form-group pb-3">
+          <%= f.label :emal, "メールアドレス", class: "d-block text-center" %>
+          <%= f.text_field :email, class: "form-control email-check" %>
+        </div>
+        <div class="form-group justify-content-center">
+          <%= f.label :password, "変更後パスワード（変更する場合のみ入力）", class: "d-block text-center" %>
+          <%= f.text_field :password, class: "form-control" %>
+        </div>
+        <div class="pb-3">
+          <%= f.label :password_confirmation, "パスワード確認用（変更する場合のみ入力）", class: "d-block text-center" %>
+          <%= f.text_field :password_confirmation, class: "form-control" %>
+        </div>
+        <div class="pb-3">
+          <%= f.label :current_password, "現在のパスワード", class: "d-block text-center" %>
+          <%= f.text_field :current_password, placeholder: "現在のパスワードを入力", class: "form-control" %>
+        </div>
+        <%= f.submit "更新", id: "submit-check", class: "btn btn-primary pb-3 w-100" %>
+        <%= link_to "戻る", users_account_path, class: "btn btn-link mt-3 pb-3 w-100 border border-dark" %>
+      <% end %>
+
+    </div>
+  </div>
+</div>
+</div>
